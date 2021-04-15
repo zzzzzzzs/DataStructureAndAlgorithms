@@ -12,12 +12,13 @@ public class elementSubset {
         n = 10;
 
 
+        // 初始化
         for (int i = 0; i < n;++i){
             set[i] = i+1;
         }
 
         for (int i = 0; i < n; i++) {
-            System.out.println(set[i]);
+            System.out.printf("%d,", set[i]);
         }
         System.out.println("-----------------");
 
@@ -32,7 +33,7 @@ public class elementSubset {
             for(int i = position + 1; i < n; i++)
                 set[i] = set[i-1] + 1;
             for(int i = 0; i < n; i++){
-                System.out.printf("%d", set[i]);
+                System.out.printf("%d,", set[i]);
             }
             System.out.println("------------------------------");
             if(set[0] >= m - n + 1)
