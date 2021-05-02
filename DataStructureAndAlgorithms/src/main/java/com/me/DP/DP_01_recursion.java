@@ -1,53 +1,33 @@
 package com.me.DP;
 
-import com.google.common.primitives.Longs;
-import com.google.common.primitives.UnsignedLong;
-import com.google.common.primitives.UnsignedLongs;
-import org.joou.ULong;
-
 import java.util.Calendar;
 
-import static org.joou.Unsigned.ulong;
 
+/*
+TODO 斐波那契数列
+* */
 public class DP_01_recursion {
 
-    /*
-    TODO 斐波那契数列
-    * */
 
-    public static Long fibonacci(Long n) {
-        if (1 == n) {
+
+    /*
+    TODO 递归版本，这个返回的时候有2个返回值，这样的话计算结果就会被重复计算
+        fib(100) = fib(99) + fib(98) = 2 * fib(98) + fib(97)
+        fib(4) = fib(3) + fib(2) = fib(2) + fib(1) + fib(2) =
+    * */
+    public static long fibonacciRec(long n) {
+        if (1 == n || 2 == n) {
             return 1L;
         }
-        if (2 == n) {
-            return 2L;
-        }
-        return fibonacci(n - 1) + fibonacci(n - 2);
+        return fibonacciRec(n - 1) + fibonacciRec(n - 2);
     }
 
-    public static ULong Ufibonacci(long n) {
-        if (1 == n) {
-            return ulong(1L);
-        }
-        if (2 == n) {
-            return ulong(2L);
-        }
-
-        return Ufibonacci(n -1 ).add(Ufibonacci(n - 2));
-//        return Ufibonacci(n - 1) + Ufibonacci(n - 2);
-    }
 
     public static void main(String[] args) {
-        // 14254ms
-//        long start1 = Calendar.getInstance().getTimeInMillis();
-//        Ufibonacci(45L);
-//        long end1 = Calendar.getInstance().getTimeInMillis();
-//        System.out.println(end1 - start1);
-
-        // long 7600ms Long 14889ms
         long start1 = Calendar.getInstance().getTimeInMillis();
-        fibonacci(45L);
+        long fibonacci = fibonacciRec(45L);
         long end1 = Calendar.getInstance().getTimeInMillis();
-        System.out.println(end1 - start1);
+        System.out.println("结果：" + fibonacci);
+        System.out.println("需要的时间：" + (end1 - start1));
     }
 }
