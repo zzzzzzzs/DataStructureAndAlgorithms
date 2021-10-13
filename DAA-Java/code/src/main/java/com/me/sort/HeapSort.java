@@ -16,9 +16,14 @@ public class HeapSort {
     public static void heapSort(int[] arr) {
         if (arr == null || arr.length < 2) return;
         // 将数组整体搞成大顶堆
-        for (int i = 0; i < arr.length; i++) { // O(N)
-            heapInsert(arr, i); // O(logN)
+//        for (int i = 0; i < arr.length; i++) { // O(N)
+//            heapInsert(arr, i); // O(logN)
+//        }
+        for (int i = arr.length - 1; i >= 0 ; i--) { // O(N) 复杂度没有变化，只是第一步变快了
+            heapify(arr, i, arr.length);
         }
+
+
         int heapSize = arr.length;
         swap(arr, 0, --heapSize); //将0位置上的数和最后一个位置上的数进行交换
         while (heapSize > 0) {
