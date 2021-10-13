@@ -20,12 +20,16 @@ public class QuickSort {
 
     // arr[1..r]排好序
     public static void quickSort(int[] arr, int L, int R) {
-        if (L < R) {
-            swap(arr, L + (int) (Math.random() * R - L + 1), R);
-            int[] p = partition(arr, L, R); // 返回的数组长度一定为2
-            quickSort(arr, L, p[0] - 1); // < 区
-            quickSort(arr, p[1] + 1, R); // > 区
-        }
+        if (L == R) return;
+//        TODO if (L > R - 60) {
+//            在arr[L..R]插入排序；
+//            O(N^2) 小样本量的时候，跑得快；
+//            return;
+//         }
+        swap(arr, L + (int) (Math.random() * R - L + 1), R);
+        int[] p = partition(arr, L, R); // 返回的数组长度一定为2
+        quickSort(arr, L, p[0] - 1); // < 区
+        quickSort(arr, p[1] + 1, R); // > 区
     }
 
     // 这是一个处理arr[1..R]的函数
@@ -39,7 +43,7 @@ public class QuickSort {
                 swap(arr, ++less, L++);
             } else if (arr[L] > arr[R]) { // 当前数 > 划分值
                 swap(arr, --more, L);
-            }else {
+            } else {
                 L++;
             }
         }
