@@ -1,6 +1,4 @@
-package com.me.sort;
-
-import javax.swing.*;
+package com.me.Sort;
 
 /**
  * @author zs
