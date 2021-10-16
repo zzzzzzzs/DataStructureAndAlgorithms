@@ -22,11 +22,11 @@ public class SelectSort {
             return;
         }
         for (int i = 0; i < arr.length - 1; i++) { // i ~ N-1
-            int maxIndex = i;
+            int minIndex = i;
             for (int j = i + 1; j < arr.length; j++) { // i ~ N-1上找最小值的下标
-                maxIndex = arr[j] < arr[maxIndex] ? j : maxIndex;
+                minIndex = arr[j] < arr[minIndex] ? j : minIndex;
             }
-            swap(arr, i, maxIndex);
+            swap(arr, i, minIndex);
         }
     }
 
