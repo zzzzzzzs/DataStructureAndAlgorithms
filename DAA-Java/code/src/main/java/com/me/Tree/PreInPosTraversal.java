@@ -65,15 +65,16 @@ public class PreInPosTraversal {
         System.out.println();
     }
 
+    // 中序遍历
     public static void inOrderUnRecur(Node head) {
         System.out.print("in-order: ");
         if (head != null) {
             Stack<Node> stack = new Stack<Node>();
             while (!stack.isEmpty() || head != null) {
-                if (head != null) {
+                if (head != null) { // 第一个分支不停的让左边界进栈
                     stack.push(head);
                     head = head.left;
-                } else {
+                } else { // 左边界完了就进度右边界
                     head = stack.pop();
                     System.out.print(head.value + " ");
                     head = head.right;
