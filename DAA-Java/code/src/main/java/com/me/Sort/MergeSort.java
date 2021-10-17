@@ -21,8 +21,6 @@ public class MergeSort {
         if (arr == null || arr.length < 2) return;
 //        int[] tmp = new int[nums.length];
         process(arr, 0, arr.length);
-        BufferedWriter bufferedWriter = new BufferedWriter("a.txt");
-        bufferedWriter.write();
     }
 
     private static void process(int[] arr, int L, int R) {
