@@ -1,5 +1,8 @@
 package com.me.Tree;
 
+import com.sun.xml.internal.bind.marshaller.NoEscapeHandler;
+import org.omg.CORBA.MARSHAL;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -17,6 +20,79 @@ public class IsBST {
         public Node left;
         public Node right;
     }
+
+    public static class ReturnData {
+        public boolean isBST;
+        public int min;
+        public int max;
+
+        public ReturnData(boolean isBST, int min, int max) {
+            this.isBST = isBST;
+            this.min = min;
+            this.max = max;
+        }
+    }
+
+    // 判断是不是搜索二叉树
+    public static ReturnData process(Node x) {
+        if (x == null) {
+            return null;
+        }
+        ReturnData leftData = process(x.left);
+        ReturnData rightData = process(x.right);
+
+        int min = x.value;
+        int max = x.value;
+        if (leftData != null) {
+            min = Math.min(min, leftData.min);
+            max = Math.max(max, leftData.max);
+        }
+        if (rightData != null) {
+            min = Math.min(min, rightData.min);
+            max = Math.max(max, rightData.max);
+        }
+
+        boolean isBST = true;
+        if (leftData != null && (!leftData.isBST || leftData.max >= x.value)) {
+            isBST = false;
+        }
+        if (rightData != null && (!rightData.isBST || x.value >= rightData.min)) {
+            isBST = false;
+        }
+        return new ReturnData(isBST, min, max);
+    }
+
+
+    // 递归判断满二叉树问题
+    public static boolean isF(Node head) {
+        if (head == null) {
+            return true;
+        }
+        Info data = f(head);
+        return data.nodes == (1 << data.height) - 1; // 2^L -1
+    }
+
+    public static class Info{
+        public int height;
+        public int nodes;
+
+        public Info(int height, int nodes) {
+            this.height = height;
+            this.nodes = nodes;
+        }
+    }
+
+    public static Info f(Node x){
+        if (x == null) {
+            return new Info(0, 0);
+        }
+        Info leftData = f(x.left);
+        Info rightData = f(x.right);
+        int height = Math.max(leftData.height, rightData.height) + 1;
+        int nodes = leftData.nodes + rightData.nodes + 1;
+        return new Info(height, nodes);
+    }
+
 
 
     public static int preValue = Integer.MIN_VALUE;
@@ -38,12 +114,20 @@ public class IsBST {
         return checkBST(head.right);
     }
 
-    public static void checkBST2(Node head) {
+    public static boolean checkBST2(Node head) {
+        if (head == null) {
+            return true;
+        }
         List<Node> inOrderList = new ArrayList<>();
         process2(head, inOrderList);
-        for (Node ele : inOrderList) {
-            System.out.println(ele.value);
+        int pre = Integer.MIN_VALUE;
+        for (Node cur : inOrderList) {
+            if (pre >= cur.value) {
+                return false;
+            }
+            pre = cur.value;
         }
+        return true;
     }
 
     public static void process2(Node head, List<Node> inOrderList) {
@@ -56,25 +140,24 @@ public class IsBST {
     }
 
 
-
     // 中序遍历
     public static boolean checkBST3(Node head) {
-        if (head != null) {
-            int preValue = Integer.MIN_VALUE;
-            Stack<Node> stack = new Stack<Node>();
-            while (!stack.isEmpty() || head != null) {
-                if (head != null) { // 第一个分支不停的让左边界进栈
-                    stack.push(head);
-                    head = head.left;
-                } else { // 左边界完了就进度右边界
-                    head = stack.pop();
-                    if (head.value <= preValue) {
-                        return false;
-                    } else {
-                        preValue = head.value;
-                    }
-                    head = head.right;
+        if (head == null) {
+            return true;
+        }
+        int pre = Integer.MIN_VALUE;
+        Stack<Node> stack = new Stack<>();
+        while (!stack.isEmpty() || head != null) {
+            if (head != null) { // 第一个分支不停的让左边界进栈
+                stack.push(head);
+                head = head.left;
+            } else { // 左边界完了就进度右边界
+                head = stack.pop();
+                if (head.value <= pre) {
+                    return false;
                 }
+                preValue = head.value;
+                head = head.right;
             }
         }
         return true;
