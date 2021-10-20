@@ -7,6 +7,7 @@ import java.util.Queue;
 /**
  * @author zs
  * @date 2021/10/20.
+ * 图-宽度优先遍历
  */
 public class BFS {
     // 从node出发，进行宽度优先遍历
