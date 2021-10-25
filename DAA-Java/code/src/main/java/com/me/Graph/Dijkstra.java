@@ -9,6 +9,8 @@ import java.util.Map.Entry;
  * @date 2021/10/22
  */
 public class Dijkstra {
+
+
     public static HashMap<Node, Integer> dijkstra1(Node head) {
         // TODO：有一个优化技巧，需要改写堆，后面会有
         // 从head出发到所有点的最小距离
@@ -146,7 +148,7 @@ public class Dijkstra {
         }
     }
 
-    // 改进后的dijkstra算法
+    // 改进后的dijkstra算法，使用小根堆
     // 从head出发，所有head能到达的节点，生成到达每个节点的最小路径记录并返回
     public static HashMap<Node, Integer> dijkstra2(Node head, int size) {
         NodeHeap nodeHeap = new NodeHeap(size);
