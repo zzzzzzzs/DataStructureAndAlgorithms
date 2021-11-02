@@ -1,5 +1,10 @@
 package com.me.Sort;
 
+import cn.hutool.core.util.RandomUtil;
+
+import java.text.MessageFormat;
+import java.util.Arrays;
+
 /**
  * @author zs
  * @date 2021/10/11.
@@ -30,11 +35,28 @@ public class SelectSort {
         }
     }
 
-    public static void main(String[] args) {
-        int[] arr = {1, 3, 2, 5, 4, 6};
-        selectSort(arr);
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i]);
+    // 对数器
+    static void testProgram(int num) {
+        int[] arr = new int[num];
+        int[] arrComp = new int[num];
+        for (int i = 0; i < num; i++) {
+            arr[i] = RandomUtil.randomInt(0, Integer.MAX_VALUE);
+            arrComp[i] = arr[i];
         }
+        Arrays.sort(arr);
+        selectSort(arrComp);
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != arrComp[i]) {
+                String msg = MessageFormat.format("出问题了，i:{0}, arr:{1}, arrComp:{2}", i, arr[i], arrComp[i]);
+                System.out.println(msg);
+                return;
+            }
+        }
+        System.out.println("正确");
+    }
+
+
+    public static void main(String[] args) {
+        testProgram(10000);
     }
 }
