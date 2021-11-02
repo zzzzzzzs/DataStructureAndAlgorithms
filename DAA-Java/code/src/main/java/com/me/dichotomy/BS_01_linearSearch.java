@@ -1,4 +1,4 @@
-package com.me.binarySearch;
+package com.me.dichotomy;
 
 public class BS_01_linearSearch {
 

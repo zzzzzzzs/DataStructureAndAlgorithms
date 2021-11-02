@@ -1,4 +1,4 @@
-package com.me.binarySearch;
+package com.me.dichotomy;
 
 public class BS_02_binarySearch {
     /*
@@ -6,13 +6,13 @@ public class BS_02_binarySearch {
             每次搜索都会砍掉一半。时间复杂度：O(logN)
             精髓先排序，这就是为什么数据库建索引的时候会很慢，但是查的时候很快。
     * */
-    public static boolean binarySearch(int[]arr, int target, int left, int right) {
-        if (left <= right) {
-            int mid = (left + right) / 2;
+    public static boolean binarySearch(int[]arr, int target, int L, int R) {
+        if (L <= R) {
+            int mid = L + ((R - L) >> 1);
             if (arr[mid] < target) {
-                return binarySearch(arr, target, mid + 1, right);
+                return binarySearch(arr, target, mid + 1, R);
             } else if (arr[mid] > target) {
-                return binarySearch(arr, target, left, mid - 1);
+                return binarySearch(arr, target, L, mid - 1);
             } else {
                 return true;
             }
