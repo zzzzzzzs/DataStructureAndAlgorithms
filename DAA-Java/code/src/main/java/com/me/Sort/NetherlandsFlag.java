@@ -26,7 +26,7 @@ public class NetherlandsFlag {
                 L++; // 将当前位置向右移动
             }
         }
-        return new int[] { less + 1, more - 1 }; // 最终返回小于区域和大于区域的值
+        return new int[] { less + 1, more - 1 }; // 最终返回等于区域的范围
     }
 
     public static void main(String[] args) {

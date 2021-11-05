@@ -1,5 +1,7 @@
 package com.me.Sort;
 
+import java.util.Arrays;
+
 /**
  * @author zs
  * @date 2021/10/12.
@@ -26,8 +28,8 @@ public class QuickSort {
 //            O(N^2) 小样本量的时候，跑得快；
 //            return;
 //         }
-        swap(arr, L + (int) (Math.random() * R - L + 1), R);
-        int[] p = partition(arr, L, R); // 返回的数组长度一定为2
+        swap(arr, L + (int) (Math.random() * R - L + 1), R); // 等概率随机选一个位置，把它和最后一个位置做交换
+        int[] p = partition(arr, L, R); // 返回相等区域的左边界和右边界
         quickSort(arr, L, p[0] - 1); // < 区
         quickSort(arr, p[1] + 1, R); // > 区
     }
