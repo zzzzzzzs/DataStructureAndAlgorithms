@@ -3,7 +3,7 @@ package com.me.Sort;
 /**
  * @author zs
  * @date 2021/11/3
- * 荷兰国旗问题，三色
+ * 荷兰国旗问题，三色。为快排准备
  */
 public class NetherlandsFlag {
 
