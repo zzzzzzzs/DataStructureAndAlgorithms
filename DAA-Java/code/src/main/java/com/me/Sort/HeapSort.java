@@ -24,8 +24,6 @@ public class HeapSort {
         for (int i = arr.length - 1; i >= 0; i--) { // O(N) 复杂度没有变化，只是第一步变快了
             heapify(arr, i, arr.length);
         }
-
-
         int heapSize = arr.length;
         swap(arr, 0, --heapSize); //将0位置上的数和最后一个位置上的数进行交换
         while (heapSize > 0) {
@@ -36,10 +34,9 @@ public class HeapSort {
 
     // 某个数现在处在index位置，往上继续移动
     public static void heapInsert(int[] arr, int index) {
-        int fIndex = (index - 1) >> 1; // 父位置
-        while (arr[index] > arr[fIndex]) { //当前的数如果大于父位置的数。一个while包含了2个停止条件：头位置或者不比父大了
-            swap(arr, index, fIndex); // index的数和父位置的数做交换
-            index = fIndex;
+        while (arr[index] > arr[(index - 1) / 2]) { //当前的数如果大于父位置的数。一个while包含了2个停止条件：头位置或者不比父大了
+            swap(arr, index, (index - 1) / 2); // index的数和父位置的数做交换
+            index = (index - 1) / 2;
         }
     }
 
@@ -116,8 +113,7 @@ public class HeapSort {
         System.out.println();
     }
 
-    // for test 对数器
-    public static void main(String[] args) {
+    public static void test1() {
         int testTime = 500000;
         int maxSize = 100;
         int maxValue = 100;
@@ -139,4 +135,33 @@ public class HeapSort {
         heapSort(arr);
         printArray(arr);
     }
+
+    public static void test2() {
+        int[] arr = {5, 3, 6, 7, 7};
+        for (int i = 0; i < arr.length; i++) {
+            heapInsert(arr, i);
+        }
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+        }
+    }
+
+    public static void test3() {
+        int[] arr = {6, 3, 5, 2, 3, 4};
+        swap(arr, 0, arr.length - 1);
+        int size = arr.length;
+        while (size > 0) {
+            heapify(arr, 0, --size);
+        }
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+        }
+    }
+
+    // for test 对数器
+    public static void main(String[] args) {
+//        test2();
+        test3();
+    }
+
 }
