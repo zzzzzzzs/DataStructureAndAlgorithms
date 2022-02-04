@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * @author zs
  * @date 2021/10/19.
- * 判断是否是平衡二叉树
+ * 二叉树的递归套路:1.判断二叉树是不是平衡二叉树
  */
 public class IsBalancedTree {
     public static class Node {
@@ -18,99 +18,79 @@ public class IsBalancedTree {
             this.value = data;
         }
     }
-
-
-    public static boolean ifFull(Node head) {
-        ReturnData allInfo = p(head);
-        return (1 << allInfo.height - 1) == allInfo.nums;
-    }
-
-    public static class ReturnData {
-        public int height;
-        public int nums;
-
-        public ReturnData(int height, int nums) {
-            this.height = height;
-            this.nums = nums;
-        }
-    }
-
-    public static ReturnData p(Node x) {
-        if (x == null) {
-            return new ReturnData(0, 0);
-        }
-        ReturnData leftData = p(x.left);
-        ReturnData rightData = p(x.right);
-
-        int height = Math.max(leftData.height, rightData.height) + 1;
-
-        int nums = leftData.nums + rightData.nums + 1;
-        return new ReturnData(height, nums);
-    }
-
-
     public static boolean isBalanced(Node head) {
         return process(head).isBalanced;
     }
 
-    public static class ReturnType {
-        public boolean isBalanced;
-        public int height;
+    /**
+     * 使用自定义类存储节点是否为二叉树和子树的高度.
+     */
+    private static Info process(Node x) {
+        if (x == null) {
+            // 空树好设置
+            return new Info(0, true);
+        }
 
-        public ReturnType(boolean isB, int hei) {
-            isBalanced = isB;
-            height = hei;
+        Info left = process(x.left);
+        Info right = process(x.right);
+
+        // 左树平衡 && 右树平衡 && 左树和右树高度差不超过1
+        boolean isBalanced = left.isBalanced && right.isBalanced && Math.abs(left.height - right.height) < 2;
+        int height = Math.max(left.height, right.height) + 1;
+        return new Info(height, isBalanced);
+    }
+
+    public static class Info {
+        int height;
+        boolean isBalanced;
+
+        public Info(int h, boolean b) {
+            height = h;
+            isBalanced = b;
         }
     }
 
-    public static ReturnType process(Node x) {
-        if (x == null) { // base
-            return new ReturnType(true, 0);
-        }
-        ReturnType leftData = process(x.left);
-        ReturnType rightData = process(x.right);
-        int height = Math.max(leftData.height, rightData.height) + 1;
-        boolean isBalanced = leftData.isBalanced && rightData.isBalanced
-                && Math.abs(leftData.height - rightData.height) < 2;
-        return new ReturnType(isBalanced, height);
+    /**
+     * 对数器
+     */
+    public static boolean isBalancedUseArray(Node head) {
+        if (head == null)
+            return true;
+        boolean[] ans = new boolean[1];
+        ans[0] = true;
+        process(head, ans);
+        return ans[0];
     }
 
+    /**
+     * boolean基础类型是按值传递, 所以使用数组封装. 存储节点是否为二叉树.
+     * 返回子树高度.
+     */
+    private static int process(Node x, boolean[] ans) {
+        if (!ans[0] || x == null)
+            return -1;
 
-    public static boolean isBalance(Node head) {
-        boolean[] res = new boolean[1];
-        res[0] = true;
-        getHeight(head, 1, res);
-        return res[0];
-    }
+        int leftH = process(x.left, ans);
+        int rightH = process(x.right, ans);
+        if (Math.abs(leftH - rightH) > 1) {
+            ans[0] = false;
+        }
 
-    public static int getHeight(Node head, int level, boolean[] res) {
-        if (head == null) {
-            return level;
-        }
-        int lH = getHeight(head.left, level + 1, res);
-        if (!res[0]) {
-            return level;
-        }
-        int rH = getHeight(head.right, level + 1, res);
-        if (!res[0]) {
-            return level;
-        }
-        if (Math.abs(lH - rH) > 1) {
-            res[0] = false;
-        }
-        return Math.max(lH, rH);
+        return Math.max(leftH, rightH) + 1;
     }
 
     public static void main(String[] args) {
-        Node head = new Node(1);
-        head.left = new Node(2);
-        head.right = new Node(3);
-        head.left.left = new Node(4);
-        head.left.right = new Node(5);
-        head.right.left = new Node(6);
-        head.right.right = new Node(7);
-
-        System.out.println(isBalance(head));
-
+        int maxLevel = 6;
+        int maxValue = 100;
+        int testTimes = 100000;
+        System.out.println("start test");
+        for (int i = 0; i < testTimes; i++) {
+//            Node head = TreeTestHelper.generateRandomBTS(maxLevel, maxValue);
+//            if (isBalanced(head) != isBalancedUseArray(head)) {
+//                System.out.println("error");
+//                break;
+//            }
+        }
+        System.out.println("finished");
     }
 }

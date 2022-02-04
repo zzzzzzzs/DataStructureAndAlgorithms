@@ -8,8 +8,7 @@ import java.util.Stack;
 /**
  * @author zs
  * @date 2021/10/18.
- * 判断是否是搜索二叉树
- * is binary search tree
+ * 二叉树的递归套路:2.判断二叉树是不是搜索二叉树
  * 使用中序遍历改造
  */
 public class IsBST {
@@ -70,6 +69,7 @@ public class IsBST {
         return data.nodes == (1 << data.height) - 1; // 2^L -1
     }
 
+    // 任何子树
     public static class Info{
         public int height;
         public int nodes;

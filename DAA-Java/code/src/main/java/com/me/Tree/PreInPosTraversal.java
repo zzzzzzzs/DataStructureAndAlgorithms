@@ -46,6 +46,7 @@ public class PreInPosTraversal {
         System.out.print(head.value + " ");
     }
 
+    // 前序遍历，使用栈
     public static void preOrderUnRecur(Node head) {
         System.out.print("pre-order: ");
         if (head != null) {
@@ -65,7 +66,7 @@ public class PreInPosTraversal {
         System.out.println();
     }
 
-    // 中序遍历
+    // 中序遍历，使用栈
     public static void inOrderUnRecur(Node head) {
         System.out.print("in-order: ");
         if (head != null) {
@@ -83,7 +84,7 @@ public class PreInPosTraversal {
         }
         System.out.println();
     }
-
+    // 后序遍历，使用栈
     public static void posOrderUnRecur1(Node head) {
         System.out.print("pos-order: ");
         if (head != null) {
