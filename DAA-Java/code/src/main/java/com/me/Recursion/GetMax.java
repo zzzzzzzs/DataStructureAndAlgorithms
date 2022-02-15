@@ -3,6 +3,7 @@ package com.me.Recursion;
 /**
  * @author zs
  * @date 2021/11/2
+ * 递归找最大值
  */
 public class GetMax {
   public static int getMax(int[] arr) {
