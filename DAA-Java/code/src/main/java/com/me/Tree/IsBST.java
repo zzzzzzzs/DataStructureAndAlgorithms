@@ -8,7 +8,8 @@ import java.util.Stack;
 /**
  * @author zs
  * @date 2021/10/18.
- * 二叉树的递归套路:2.判断二叉树是不是搜索二叉树
+ * 二叉树的递归套路
+ * 判断二叉树是不是搜索二叉树
  * 使用中序遍历改造
  */
 public class IsBST {

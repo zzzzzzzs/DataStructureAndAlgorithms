@@ -100,6 +100,6 @@ public class Hanoi {
     public static void main(String[] args) {
         hanoi1(3);
         System.out.println("----");
-        hanoi2(3, "left", "right", "mid");
+        hanoi2(2, "left", "right", "mid");
     }
 }
