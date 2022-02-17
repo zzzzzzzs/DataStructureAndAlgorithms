@@ -16,15 +16,16 @@ public class PrintAllSubsquences {
   // 当前来到i位置，要和不要，走两条路
   // 之前的选择，所形成的结果，是str
   public static void process(char[] str, int i) {
+    // 中止条件就是来到的字符位置等于字符串的长度
     if (i == str.length) {
       System.out.println(String.valueOf(str));
       return;
     }
     process(str, i + 1); // 要当前字符的路
     char tmp = str[i];
-    str[i] = 0;
+    str[i] = 0; // 将不要的字符置为0
     process(str, i + 1); // 不要当前字符的路
-    str[i] = tmp;
+    str[i] = tmp; // 将字符复原
   }
 
   public static List<String> getAllSubs(String s) {
@@ -46,6 +47,7 @@ public class PrintAllSubsquences {
     process(str, index + 1, ans, yesPath);
   }
 
+
   public static void main(String[] args) {
     String test = "abc";
     List<String> ans = getAllSubs(test);
@@ -53,5 +55,7 @@ public class PrintAllSubsquences {
     for (String str : ans) {
       System.out.println(str);
     }
+    System.out.println("----------------");
+    printAllSubsquence(test);
   }
 }
