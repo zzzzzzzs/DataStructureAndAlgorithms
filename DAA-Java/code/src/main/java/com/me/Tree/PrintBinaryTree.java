@@ -20,7 +20,7 @@ public class PrintBinaryTree {
     if (node == null) {
       return;
     }
-    printProcess(node.value);
+    printProcess(node.value); // 先序打印
     printInOrder(node.left);
     printInOrder(node.right);
   }
