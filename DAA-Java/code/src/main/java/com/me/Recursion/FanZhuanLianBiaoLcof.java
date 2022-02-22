@@ -3,6 +3,8 @@ package com.me.Recursion;
 /**
  * @author zs
  * @date 2022/2/20 反转链表 https://leetcode-cn.com/problems/fan-zhuan-lian-biao-lcof/
+ * 
+ *       https://labuladong.github.io/algo/2/17/17/
  */
 public class FanZhuanLianBiaoLcof {
 
@@ -23,24 +25,22 @@ public class FanZhuanLianBiaoLcof {
   }
 
   public ListNode reverseList(ListNode head) {
-    if(head == null || head.next == null) {
+    if (head == null || head.next == null) {
       return head;
     }
-    ListNode node = reverseList(head.next);
+    ListNode last = reverseList(head.next);
     head.next.next = head;
     head.next = null;
-    return node;
+    return last;
   }
 
-
-
   public void test() {
-    ListNode node1 = new ListNode(1);
-    node1.next = new ListNode(2);
-    node1.next.next = new ListNode(3);
-    node1.next.next.next = new ListNode(4);
-    node1.next.next.next.next = new ListNode(5);
-    reverseList(node1);
+    ListNode node = new ListNode(1);
+    node.next = new ListNode(2);
+    // node.next.next = new ListNode(3);
+    // node.next.next.next = new ListNode(4);
+    // node.next.next.next.next = new ListNode(5);
+    node = reverseList(node);
     System.out.println();
   }
 
