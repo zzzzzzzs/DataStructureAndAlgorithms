@@ -9,7 +9,6 @@ public class UnivaluedBinaryTree {
   boolean flag = true;
   int value = 0;
 
-  // 层序遍历
   public boolean isUnivalTree(TreeNode root) {
     value = root.val;
     process(root);

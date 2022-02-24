@@ -10,7 +10,6 @@ import java.util.Queue;
  */
 public class BinaryTreeLevelOrderTraversal {
 
-
   public List<List<Integer>> levelOrder(TreeNode root) {
     List<List<Integer>> res = new LinkedList<>();
     if (root == null) {
@@ -38,7 +37,7 @@ public class BinaryTreeLevelOrderTraversal {
   }
 
   public void test() {
-    Integer[] arr = {3, 9, 20, null, null, 15, 7};
+    Integer[] arr = {};
     TreeNode root = TreeNode.constructTree(arr);
     List<List<Integer>> list = levelOrder(root);
     System.out.println();

@@ -1,34 +1,62 @@
 package com.me.Tree;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * @author zs
  * @date 2022/2/21 二叉搜索树的范围和 https://leetcode-cn.com/problems/range-sum-of-bst/
  */
 public class RangeSumOfBst {
 
-  int sum = 0;
+  boolean flag = true;
+  List<Integer> leaf1 = new LinkedList<>();
+  List<Integer> leaf2 = new LinkedList<>();
 
-  public int rangeSumBST(TreeNode root, int low, int high) {
-    process(root, low, high);
-    return sum;
+  public boolean leafSimilar(TreeNode root1, TreeNode root2) {
+    process1(root1);
+    process2(root2);
+    if (leaf1.size() == leaf2.size()) {
+      for (int i = 0; i < leaf1.size(); i++) {
+        if (leaf1.get(i) != leaf2.get(i)) {
+          flag = false;
+        }
+      }
+    } else {
+      flag = false;
+    }
+    return flag;
   }
 
-  void process(TreeNode root, int low, int high) {
+  void process1(TreeNode root) {
     if (root == null) {
       return;
     }
-    if (root.val >= low && root.val <= high) {
-      sum += root.val;
+    if (root.left == null && root.right == null) {
+      leaf1.add(root.val);
     }
-    process(root.left, low, high);
-    process(root.right, low, high);
+    process1(root.left);
+    process1(root.right);
+  }
+
+  void process2(TreeNode root) {
+    if (root == null) {
+      return;
+    }
+    if (root.left == null && root.right == null) {
+      leaf2.add(root.val);
+    }
+    process2(root.left);
+    process2(root.right);
   }
 
   public void test() {
-    Integer[] arr = {10, 5, 15, 3, 7, null, 18};
-    TreeNode root = TreeNode.constructTree(arr);
-    int i = rangeSumBST(root, 7, 15);
-    System.out.println(i);
+    Integer[] arr1 = {1, 2};
+    Integer[] arr2 = {2, 2};
+    TreeNode root1 = TreeNode.constructTree(arr1);
+    TreeNode root2 = TreeNode.constructTree(arr2);
+    boolean b = leafSimilar(root1, root2);
+    System.out.println(b);
   }
 
   public static void main(String[] args) {
