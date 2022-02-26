@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author zs
  * @date 2022/2/21
@@ -17,5 +20,10 @@ public class TreeNode {
     this.val = val;
     this.left = left;
     this.right = right;
+  }
+
+  public static void main(String[] args) {
+    Map<Integer, int[]> map = new HashMap<>();
+
   }
 }

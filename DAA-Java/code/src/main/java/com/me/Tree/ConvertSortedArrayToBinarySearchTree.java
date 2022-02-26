@@ -1,10 +1,11 @@
 package com.me.Tree;
 
 /**
- * @author zs
- * @date 2022/2/22 将有序数组转换为二叉搜索树 https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/
+ * 将有序数组转换为二叉搜索树
  * 
- *       高度平衡二叉树是一棵满足「每个节点的左右两个子树的高度差的绝对值不超过 1 」的二叉树。
+ * https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/
+ * 
+ * 高度平衡二叉树是一棵满足「每个节点的左右两个子树的高度差的绝对值不超过 1 」的二叉树。
  */
 public class ConvertSortedArrayToBinarySearchTree {
   public class TreeNode {

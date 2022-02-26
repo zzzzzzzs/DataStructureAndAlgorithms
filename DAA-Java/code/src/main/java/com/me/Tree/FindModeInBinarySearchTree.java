@@ -3,8 +3,10 @@ package com.me.Tree;
 import java.util.*;
 
 /**
- * @author zs
- * @date 2022/2/22 二叉搜索树中的众数 https://leetcode-cn.com/problems/find-mode-in-binary-search-tree/
+ * 
+ * 二叉搜索树中的众数
+ * 
+ * https://leetcode-cn.com/problems/find-mode-in-binary-search-tree/
  */
 public class FindModeInBinarySearchTree {
   public class TreeNode {
@@ -58,8 +60,8 @@ public class FindModeInBinarySearchTree {
 
   public void test() {
     TreeNode root = new TreeNode(0);
-//    root.right = new TreeNode(2);
-//    root.right.left = new TreeNode(2);
+    // root.right = new TreeNode(2);
+    // root.right.left = new TreeNode(2);
     int[] mode = findMode(root);
     System.out.println();
   }

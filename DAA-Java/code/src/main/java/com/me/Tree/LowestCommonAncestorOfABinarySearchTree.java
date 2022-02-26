@@ -1,11 +1,14 @@
 package com.me.Tree;
 
 /**
- * @author zs
- * @date 2022/2/22 二叉搜索树的最近公共祖先 https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
+ * 二叉搜索树的最近公共祖先
+ * 
+ * https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
+ * 
  */
 public class LowestCommonAncestorOfABinarySearchTree {
 
+  // 自底向上，后序遍历
   public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 
     return null;

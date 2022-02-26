@@ -4,8 +4,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @author zs
- * @date 2022/2/21 二叉搜索树的范围和 https://leetcode-cn.com/problems/range-sum-of-bst/
+ * 二叉搜索树的范围和
+ * 
+ * https://leetcode-cn.com/problems/range-sum-of-bst/
+ * 
  */
 public class RangeSumOfBst {
 
