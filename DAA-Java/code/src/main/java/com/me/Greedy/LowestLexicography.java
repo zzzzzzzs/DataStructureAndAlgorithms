@@ -4,8 +4,6 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 /**
- * @author zs
- * @date 2021/10/25
  * 贪心算法：让字符串拼接以后有最小的字典序
  */
 public class LowestLexicography {

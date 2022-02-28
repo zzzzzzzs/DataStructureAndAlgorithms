@@ -4,8 +4,6 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
- * @author zs
- * @date 2021/10/25
  * 贪心算法：金条切割问题
  */
 public class LessMoneySplitGold {

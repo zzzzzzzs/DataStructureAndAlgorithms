@@ -4,8 +4,6 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
- * @author zs
- * @date 2021/10/25
  * 获取最大利润
  */
 public class IPO {

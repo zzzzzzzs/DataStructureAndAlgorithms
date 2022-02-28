@@ -4,8 +4,6 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 /**
- * @author zs
- * @date 2021/10/22
  * 贪心算法：会议室问题
  */
 public class BestArrange {
