@@ -1,8 +1,6 @@
 package com.me.DP;
 
 /**
- * @author zs
- * @date 2022/2/7
  * 汉诺塔问题
  */
 public class Hanoi {

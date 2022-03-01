@@ -1,11 +1,7 @@
 package com.me.DP;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
- * @author zs
- * @date 2022/2/8 换零钱 给定一个正数数组，数组里面的数不重复 在给定一个目标数，求用数组里面的数拼凑成该目标数的方法数（数组里面的数可以多次使用）
+ * 换零钱 给定一个正数数组，数组里面的数不重复 在给定一个目标数，求用数组里面的数拼凑成该目标数的方法数（数组里面的数可以多次使用）
  */
 public class CoinsWay {
 
