@@ -5,7 +5,7 @@ package com.me;
  * @date 2022/3/2
  */
 public class ListNode {
-  int val;
+  public int val;
   public ListNode next;
 
   ListNode(int x) {
