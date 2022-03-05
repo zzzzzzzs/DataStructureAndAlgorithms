@@ -1,5 +1,8 @@
 package com.me.DoublePointer;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * 删除有序数组中的重复项
  *
