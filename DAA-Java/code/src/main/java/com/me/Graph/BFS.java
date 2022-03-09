@@ -5,11 +5,10 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * @author zs
- * @date 2021/10/20. 图-宽度优先遍历
+ * 图-宽度优先遍历
  */
 public class BFS {
-  // 从node出发，进行宽度优先遍历
+  // 从node出发，进行宽度优先遍历，整个大图的结构是用不到的，只要从一个点开始遍历就可以了
   public static void bfs(Node node) {
     if (node == null) {
       return;

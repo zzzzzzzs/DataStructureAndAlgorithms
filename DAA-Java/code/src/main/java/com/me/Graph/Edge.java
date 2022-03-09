@@ -6,6 +6,7 @@ package com.me.Graph;
  */
 public class Edge {
     public int weight; // 权值（一般是距离）
+    // 有向边和无向边是一样的
     public Node from;
     public Node to;
 
