@@ -1,8 +1,7 @@
 package com.me.Graph;
 
 /**
- * @author zs
- * @date 2021/10/20.
+ * 边的集合
  */
 public class Edge {
     public int weight; // 权值（一般是距离）

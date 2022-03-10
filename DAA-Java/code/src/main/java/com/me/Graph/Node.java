@@ -3,8 +3,7 @@ package com.me.Graph;
 import java.util.ArrayList;
 
 /**
- * @author zs
- * @date 2021/10/20.
+ * 图的点集
  */
 public class Node {
   public int value; // 具体的数据

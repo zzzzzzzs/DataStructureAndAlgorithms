@@ -3,11 +3,13 @@ package com.me.Graph;
 import java.util.HashSet;
 import java.util.Stack;
 
+import static com.me.Graph.GraphGenerator.createGraph;
+
 /**
  * 图-深度优先遍历
  */
 public class DFS {
-  public static void dfs(Node node) {
+  public void dfs(Node node) {
     if (node == null) {
       return;
     }
@@ -28,5 +30,16 @@ public class DFS {
         }
       }
     }
+  }
+
+  void test() {
+    Integer[][] matrix = {{1, 0, 5}, {2, 1, 3}, {2, 0, 7}};
+    Graph graph = createGraph(matrix);
+    dfs(graph.nodes.get(1));
+    System.out.println();
+  }
+
+  public static void main(String[] args) {
+    new BFS().test();
   }
 }

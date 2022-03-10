@@ -34,7 +34,7 @@ public class GraphGenerator {
 
   public static void main(String[] args) {
     Integer[][] matrix = {{1, 0, 5}, {2, 1, 3}, {2, 0, 7}};
-    createGraph(matrix);
+    Graph graph = createGraph(matrix);
     System.out.println();
   }
 }
