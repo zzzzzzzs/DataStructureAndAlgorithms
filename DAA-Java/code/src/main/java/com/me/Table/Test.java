@@ -11,12 +11,12 @@ public class Test {
     table.insert(Bean.builder().col1("cc").col2("cc3").col3(3).build());
     table.insert(Bean.builder().col1("dd").col2(null).col3(4).build());
     table.insert(Bean.builder().col1("ee").col2("ee5").col3(5).build());
-    ArrayList<Bean> aa = table.selectWhere("col1,col2", "aa", null);
+//    ArrayList<Bean> aa = table.selectWhere("col1,col2", "aa", null);
     //    table.deleteWhere("col1", "aa");
     //    table.print();
-    table.updateWhere("col2", new Object[] {null}, "col2", new Object[] {"dd"});
+//    table.updateWhere("col2", new Object[] {null}, "col2", new Object[] {"dd"});
     //    table.print();
     //    table.sort();
-    table.print(aa);
+    table.print();
   }
 }

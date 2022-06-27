@@ -8,6 +8,7 @@ import lombok.ToString;
 @Builder
 @ToString
 public class Bean {
+  @AutoInc Integer id;
   String col1;
   String col2;
   Integer col3;
