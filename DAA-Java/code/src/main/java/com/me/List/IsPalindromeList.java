@@ -1,7 +1,5 @@
 package com.me.List;
 
-import jdk.internal.dynalink.beans.StaticClass;
-
 import java.util.Stack;
 
 /**

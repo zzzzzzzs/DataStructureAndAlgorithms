@@ -1,8 +1,7 @@
 package com.me.dichotomy;
 
 /**
- * @author zs
- * @date 2021/11/2 找局部最小值
+ * 找局部最小值
  */
 public class FindOneLessValueIndex {
   public static int getLessIndex(int[] arr) {
@@ -39,7 +38,7 @@ public class FindOneLessValueIndex {
   }
 
   public static void main(String[] args) {
-    int[] arr = {6, 5, 3, 4, 6, 7, 8};
+    int[] arr = {2, 4, 1, 1, 6, 5};
     printArray(arr);
     int index = getLessIndex(arr);
     System.out.println("index: " + index + ", value: " + arr[index]);

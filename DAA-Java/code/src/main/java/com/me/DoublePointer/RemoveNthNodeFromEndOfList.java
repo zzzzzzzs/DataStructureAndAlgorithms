@@ -1,7 +1,6 @@
 package com.me.DoublePointer;
 
 import com.me.ListNode;
-import com.sun.imageio.plugins.wbmp.WBMPImageReader;
 
 /**
  * 删除链表的倒数第 N 个结点

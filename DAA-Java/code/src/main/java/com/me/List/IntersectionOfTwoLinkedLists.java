@@ -40,8 +40,8 @@ public class IntersectionOfTwoLinkedLists {
   }
 
   void test() {
-    int[] arr1 = {1, 1, 2};
-    int[] arr2 = {1, 1, 2};
+    int[] arr1 = {4, 1, 8, 4, 5};
+    int[] arr2 = {5, 0, 1, 8, 4, 5};
     ListNode node1 = ListNode.constructListNode(arr1);
     ListNode node2 = ListNode.constructListNode(arr2);
     ListNode node = getIntersectionNode(node1, node2);
